@@ -35,7 +35,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,7 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'email_and_username_auth',
-
+    'texts',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +146,9 @@ AUTHENTICATION_BACKENDS = ['email_and_username_auth.backends.EmailOrUsernameMode
 #     "http://127.0.0.1:3000"
 # ]
 CORS_ALLOW_ALL_ORIGINS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}

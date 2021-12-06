@@ -3,8 +3,9 @@ from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework_simplejwt.views import TokenObtainPairView
 
-from .serializers import UserSerializer
+from .serializers import UserSerializer, MyTokenObtainPairSerializer
 from .models import CustomUser
 
 class UserCreate(APIView):
@@ -19,6 +20,11 @@ class UserCreate(APIView):
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
+
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
