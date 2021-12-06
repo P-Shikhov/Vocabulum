@@ -6,4 +6,4 @@ class TextSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Text
-        fields = ['author', 'title', 'text']
+        fields = ['id', 'author', 'title', 'text']

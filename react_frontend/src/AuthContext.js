@@ -3,9 +3,6 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom'
 // import { usenavigate } from 'react-router-dom'
 
-// create context
-// create provider:
-
 
 const AuthContext = createContext();
 
@@ -28,7 +25,7 @@ export const AuthProvider = ({children}) => {
             },
             body: JSON.stringify({
                 //todo: change field name?
-                'email': e.target.login.value, 
+                'email': e.target.email.value, 
                 'password': e.target.password.value
             })
         })

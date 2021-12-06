@@ -13,7 +13,7 @@ class TextViewSet(viewsets.ModelViewSet):
 
     def create(self, request):
         serializer = self.get_serializer(data=request.data)
-        # serializer.is_valid(raise_exception=True)
+        serializer.is_valid(raise_exception=True)
         if serializer.is_valid() and request.user.id == request.data['author']:
             self.perform_create(serializer)
             headers = self.get_success_headers(serializer.data)

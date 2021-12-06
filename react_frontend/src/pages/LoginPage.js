@@ -7,7 +7,7 @@ const LoginPage = () => {
     return (
         <div>
             <form onSubmit={loginUser}>
-                <input type="text" name="login" placeholder="Email or username" />
+                <input type="text" name="email" placeholder="Email or username" />
                 <input type="password" name="password" placeholder="Password" />
                 <input type="submit" value="Log in" />
             </form>
