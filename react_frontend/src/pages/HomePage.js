@@ -22,7 +22,7 @@ const HomePage = () => {
         if (authTokens) {
             getTexts();
         }
-    })
+    }, [])
 
     return (
         <ul>

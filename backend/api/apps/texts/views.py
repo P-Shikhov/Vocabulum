@@ -3,13 +3,17 @@ from rest_framework import status, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from .models import Text
+from .models import Text, CustomUser
 from .serializers import TextSerializer
 
 class TextViewSet(viewsets.ModelViewSet):
-    queryset = Text.objects.all()
+    model = Text
     serializer_class = TextSerializer
     permission_classes = (IsAuthenticated, )
+
+    def get_queryset(self):
+        current_user = CustomUser.objects.get(id=self.request.user.id)
+        return current_user.text_set.all()
 
     def create(self, request):
         serializer = self.get_serializer(data=request.data)

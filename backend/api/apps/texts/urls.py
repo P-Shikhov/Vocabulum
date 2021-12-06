@@ -4,7 +4,7 @@ from .views import TextViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'texts', TextViewSet)
+router.register(r'texts', TextViewSet, basename='texts')
 
 app_name = 'texts'
 
